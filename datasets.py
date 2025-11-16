@@ -42,5 +42,5 @@ print("[SUCCESS]  Dataset stored in table 'german_data' of database 'credit_risk
 # --------------------------------------------------
 print("[INFO]     Exporting the last 10 rows (excluding the target) to CSV...")
 df_no_target = df.drop("credit_risk", axis=1)
-df_no_target.tail(10).to_csv("credit_requests.csv", index=False)
-print("[SUCCESS]  Export complete: 'credit_requests.csv'.\n")
+df_no_target.tail(10).to_csv("credit_applications.csv", index=False)
+print("[SUCCESS]  Export complete: 'credit_applications.csv'.\n")
