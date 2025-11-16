@@ -20,7 +20,7 @@ The project contains three scripts:
     - Assigns column names according to the dataset documentation `german.doc` included in the ZIP file. 
     - Converts the target variable `credit_risk` (1 = Good, 0 = Bad).  
   - Creates the database `credit_risk.db` and saves the first 990 rows as table `german_data`. 
-  - Saves the remaining 10 rows without the target variable as `credit_requests.csv`. 
+  - Saves the remaining 10 rows without the target variable as `credit_applications.csv`. 
 
 - **`model.py`**  
   - Loads the credit dataset from the database.
@@ -32,9 +32,9 @@ The project contains three scripts:
   - Evaluates the model on the test set.
 
 - **`prediction.py`**  
-  - Loads the credit requests and the pipeline.  
-  - Generates predictions for the credit requests.  
-  - Saves the credit requests and the predictions as `predictions.csv`.
+  - Loads the credit applications and the pipeline.  
+  - Generates predictions for the credit applications.  
+  - Saves the credit applications and the predictions as `predictions.csv`.
 
 ## Requirements
 
