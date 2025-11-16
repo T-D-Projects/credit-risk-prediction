@@ -2,10 +2,10 @@ import pandas as pd
 import joblib
 
 # --------------------------------------------------
-# STEP 1: Load credit requests dataset.
+# STEP 1: Load credit applications dataset.
 # --------------------------------------------------
-print("[INFO]     Loading dataset 'credit_requests.csv'...")
-df = pd.read_csv("credit_requests.csv")
+print("[INFO]     Loading dataset 'credit_applications.csv'...")
+df = pd.read_csv("credit_applications.csv")
 print(f"[SUCCESS]  Dataset loaded: {len(df)} rows, {len(df.columns)} columns.\n")
 
 # --------------------------------------------------
@@ -28,4 +28,4 @@ print("[SUCCESS]  Predictions generated.\n")
 # --------------------------------------------------
 print("[INFO]     Saving predictions...")
 df.to_csv("predictions.csv", index=False)
-print("[SUCCESS]  Credit requests and predictions saved as 'predictions.csv'.\n")
+print("[SUCCESS]  Credit applications and predictions saved as 'predictions.csv'.\n")
