@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import sqlite3
 
@@ -5,7 +6,9 @@ import sqlite3
 # STEP 1: Load credit dataset.
 # --------------------------------------------------
 print("[INFO]     Loading dataset 'german.data'...")
-df = pd.read_csv("german.data", sep=r"\s+", header=None)
+folder_path = os.path.dirname(os.path.abspath(__file__))
+path = os.path.join(folder_path, "german.data")
+df = pd.read_csv(path, sep=r"\s+", header=None)
 print(f"[SUCCESS]  Dataset loaded with {len(df)} rows and {len(df.columns)} columns.\n")
 
 # --------------------------------------------------
@@ -32,7 +35,8 @@ print("[SUCCESS]  Target variable conversion completed.\n")
 # STEP 4: Create SQLite database and save first 990 rows.
 # --------------------------------------------------
 print("[INFO]     Creating a SQLite database and saving the first 990 rows to it...")
-conn = sqlite3.connect("credit_risk.db")
+path = os.path.join(folder_path, "credit_risk.db")
+conn = sqlite3.connect(path)
 df.head(990).to_sql("german_data", conn, if_exists="replace", index=False)
 conn.close()
 print("[SUCCESS]  Dataset stored in table 'german_data' of database 'credit_risk.db'.\n")
@@ -42,5 +46,6 @@ print("[SUCCESS]  Dataset stored in table 'german_data' of database 'credit_risk
 # --------------------------------------------------
 print("[INFO]     Exporting the last 10 rows (excluding the target) to CSV...")
 df_no_target = df.drop("credit_risk", axis=1)
-df_no_target.tail(10).to_csv("credit_applications.csv", index=False)
+path = os.path.join(folder_path, "credit_applications.csv")
+df_no_target.tail(10).to_csv(path, index=False)
 print("[SUCCESS]  Export complete: 'credit_applications.csv'.\n")
