@@ -41,5 +41,3 @@ The project contains three scripts:
 - `pandas`
 - `scikit-learn`
 - `joblib`
-- `sqlite3`
-
