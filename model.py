@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import sqlite3
 from sklearn.linear_model import LogisticRegression
@@ -12,7 +13,9 @@ import joblib
 # STEP 1: Load credit dataset from database.
 # --------------------------------------------------
 print("[INFO]     Loading dataset 'german_data' from 'credit_risk.db'...")
-conn = sqlite3.connect("credit_risk.db")
+folder_path = os.path.dirname(os.path.abspath(__file__))
+path = os.path.join(folder_path, "credit_risk.db")
+conn = sqlite3.connect(path)
 df = pd.read_sql("SELECT * FROM german_data", conn)
 conn.close()
 print(f"[SUCCESS]  Dataset loaded: {len(df)} rows, {len(df.columns)} columns.\n")
@@ -79,7 +82,8 @@ print("[SUCCESS]  Pipeline fitted.\n")
 # STEP 5: Save pipeline.
 # --------------------------------------------------
 print("[INFO]     Saving pipeline...")
-joblib.dump(pipeline, "pipeline.joblib")
+path = os.path.join(folder_path, "pipeline.joblib")
+joblib.dump(pipeline, path)
 print("[SUCCESS]  Pipeline saved as 'pipeline.joblib'.\n")
 
 # --------------------------------------------------
