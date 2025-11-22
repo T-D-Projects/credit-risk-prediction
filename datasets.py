@@ -19,7 +19,7 @@ df.columns = [
     'checking_account', 'duration', 'credit_history', 'purpose', 'credit_amount',
     'savings_account', 'employment_since', 'installment_rate', 'personal_status',
     'guarantors', 'residence_since', 'property', 'age', 'other_installment_plans',
-    'housing', 'number_existing_credits', 'job', 'liable_maintenance_people',
+    'housing', 'number_existing_credits', 'job', 'number_maintenance_obligations',
     'telephone', 'foreign_worker', 'credit_risk'
 ]
 print("[SUCCESS]  Column names assigned.\n")
